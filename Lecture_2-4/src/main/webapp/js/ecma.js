@@ -88,6 +88,7 @@ function anotherFunc() {
 function demo9() {
     // Kaller funksjon med tre argumenter. Objektet "arguments" har da tre argumenter.
     anotherFunc(1, "abc", Math.PI);
+    //console.log(33,'looser',Math.E);
 }
 
 function bFunc(x, y, ...z) {

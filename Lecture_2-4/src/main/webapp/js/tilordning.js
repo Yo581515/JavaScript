@@ -243,7 +243,7 @@ function demo16() {
 
     const { id, fornavn, etternavn } = person;
 
-    console.log(`id: ${id}`);
+    console.log(`iddd: ${id}`);
     console.log(`fornavn: ${fornavn}`);
     console.log(`etternavn: ${etternavn}`);
 }
