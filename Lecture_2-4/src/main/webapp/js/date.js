@@ -6,14 +6,14 @@ function demo0() {
 }
 
 function demo1() {
-    // 15. oktober som antall millisekund siden 1. januar 1970
-    const ms = Date.UTC(2020,9,10); // Statisk Date metode;
+    // 26. oktober som antall millisekund siden 1. januar 1970
+    const ms = Date.UTC(2021,9,26); // Statisk Date metode;
     console.log(ms);
 }
 
 function demo2() {
-    //  15. oktober 2020 som Date objekt
-    const dato = new Date(2020,9,15);
+    //  26. oktober 2021 som Date objekt
+    const dato = new Date(2021,9,26);
     console.log(dato);
 }
 

@@ -40,7 +40,7 @@ function demo3() {
      * Funksjonen feiler siden det her brukes "strict mode".
      */
     console.log("Denne vil feile!");
-    let NaN = 6;
+    NaN = 6;
     console.log(NaN);
 }
 
@@ -106,8 +106,8 @@ function demo7() {
           console.log(public); \
           ")
 
-     let public = 6
-     console.log(public)
+    // let public = 6
+    // console.log(public)
 }
 
 function showthis() {

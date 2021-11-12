@@ -2,6 +2,7 @@
 
 function demo0() {
     const farger = new Array("rød","grønn","blå","gul");
+
     for (let i=0;i<farger.length;++i) {
         console.log(`farger[${i}]: ${farger[i]}`);
     }
@@ -9,6 +10,7 @@ function demo0() {
 
 function demo1() {
     const farger = new Array("rød","grønn","blå","gul");
+
     for (const farge of farger) {
         console.log(farge);
     }
@@ -16,6 +18,7 @@ function demo1() {
 
 function demo2() {
     const farger = ["rød","grønn","blå","gul"];
+
     for (const farge of farger) {
         console.log(farge);
     }
@@ -48,11 +51,13 @@ function visFarge(farge,index) {
 
 function demo5() {
     const farger = ["rød","grønn","blå","gul"];
+
     farger.forEach(visFarge);
 }
 
 function demo6() {
     const farger = ["rød","grønn","blå","gul"];
+
     farger.forEach(
         function(farge,index) {
             console.log(`${index}: ${farge}`);
@@ -62,6 +67,7 @@ function demo6() {
 
 function demo7() {
     const farger = ["rød","grønn","blå","gul"];
+
     farger.forEach(
         (farge,index) => {console.log(`${index}: ${farge}`)}
     );
@@ -69,6 +75,7 @@ function demo7() {
 
 function demo8() {
     const farger = ["rød","grønn","blå","gul"];
+
     farger.forEach(
         farge => {console.log(farge)}
     );
@@ -77,11 +84,12 @@ function demo8() {
 function demo9() {
     /* Denne koden feiler.
      * getElementsByTagName returnerer en liste, HTMLCollection.
-     * Denne strutkruen er indeksert, men har ingen forEach metode.
+     * Denne strukturen er indeksert, men har ingen forEach metode.
      */
+
     console.log("Denne vil feile!");
     document.getElementsByTagName("button").forEach( // Error, no forEach method
-        element => {console.log(element.innerText)}
+        element => {console.log(element.getAttribute('data-demo'))}
     );
 }
 
@@ -108,24 +116,38 @@ function demo11() {
 }
 
 function demo12() {
-    const farger = ["rød","grønn","blå","gul"]
-    farger.push("sort")
-    farger.unshift("hvit")
-    farger.forEach(
-        farge => {console.log(farge)}
+    /* Denne virker.
+     * querySelectorAll returnerer en liste, en statisk HTMLCollection.
+     * Denne strukturen har forEach metode.
+     */
+
+    document.querySelectorAll("button").forEach(
+        element => {console.log(element.getAttribute('data-demo'))}
     );
 }
 
 function demo13() {
     const farger = ["rød","grønn","blå","gul"];
+  
+    farger.push("sort");
+    farger.unshift("hvit");
+    farger.forEach(
+        farge => {console.log(farge)}
+    );
+}
+
+function demo14() {
+    const farger = ["rød","grønn","blå","gul"];
+
     console.log(`shift: ${farger.shift()}`);
     console.log(`pop: ${farger.pop()}`);
+
     farger.forEach(
         (farge,index) => {console.log(`${index}: ${farge}`)}
     );
 }
 
-function demo14() {
+function demo15() {
     const farger = [];
     farger[farger.length] = "rød";
     farger[farger.length] = "grønn";
@@ -137,7 +159,7 @@ function demo14() {
     );
 }
 
-function demo15() {
+function demo16() {
     const farger = ["rød","grønn"];
     const flerefarger = ["blå","gul"];
 
@@ -146,17 +168,9 @@ function demo15() {
     );
 }
 
-function demo16() {
-    const tabell = [1,2,7,3,9,8];
-    if (tabell.every(tall => tall>=0)) {
-        console.log("Kun ikke-negative tall");
-    } else {
-        console.log("Noen tall er negative");
-    }
-}
-
 function demo17() {
-    const tabell = [1,2,-7,3,-9,8];
+    const tabell = [1,2,7,3,9,8];
+ 
     if (tabell.every(tall => tall>=0)) {
         console.log("Kun ikke-negative tall");
     } else {
@@ -166,6 +180,17 @@ function demo17() {
 
 function demo18() {
     const tabell = [1,2,-7,3,-9,8];
+
+    if (tabell.every(tall => tall>=0)) {
+        console.log("Kun ikke-negative tall");
+    } else {
+        console.log("Noen tall er negative");
+    }
+}
+
+function demo19() {
+    const tabell = [1,2,-7,3,-9,8];
+ 
     if (tabell.some(tall => tall>=0)) {
         console.log("Tabellen har minst ett ikke-negative tall");
     } else {
@@ -173,7 +198,7 @@ function demo18() {
     }
 }
 
-function demo19() {
+function demo20() {
     const tabell = [1,2,-7,3,-9,8]
 
     tabell.filter(tall => tall>=0).forEach(
@@ -181,7 +206,7 @@ function demo19() {
     );
 }
 
-function demo20() {
+function demo21() {
     const farger = ["rød","grønn","blå","gul"];
 
     if (farger.includes("grønn")) {
@@ -191,7 +216,7 @@ function demo20() {
     }
 }
 
-function demo21() {
+function demo22() {
     const farger = ["rød","grønn","blå","gul"];
 
     if (farger.includes("fiolett")) {
@@ -201,8 +226,9 @@ function demo21() {
     }
 }
 
-function demo22() {
+function demo23() {
     const tabell = [1,2,-7,3,-9,8];
+ 
     tabell.sort((a,b) => a-b);
 
     tabell.forEach(

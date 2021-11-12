@@ -20,7 +20,7 @@ function demo1() {
 
 function demo2() {
     /**
-     * JSON syntaks "{}" opretter forekomst av Object. Det kan også gjøres
+     * JSON syntaks "{}" oppretter forekomst av Object. Det kan også gjøres
      * ved "new Object()"
      */
     

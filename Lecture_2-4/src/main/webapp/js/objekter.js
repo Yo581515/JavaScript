@@ -16,6 +16,8 @@ function demo2() {
 
     try {
         const JSONString = JSON.stringify(tabell);
+        
+        console.log(`typeof JSONString: ${typeof JSONString}`);
 
         console.log(`En tekststreng: '${JSONString}'`);
     } catch(e) {
@@ -28,6 +30,8 @@ function demo3() {
 
     try {
         const tabell = JSON.parse(JSONString);
+
+        console.log(`typeof tabell: ${typeof tabell}`);
 
         tabell.forEach(tall => {console.log(tall)});
     } catch(e) {

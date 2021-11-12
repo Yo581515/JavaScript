@@ -40,7 +40,7 @@ function demo3() {
 function demo4() {
     const start = "Hei alle i faget";
     const end = "DAT108";
-    const message = start.concat(" '",end,"'");
+    const message = start.concat(" '", end, "'");
     console.log(message);
 }
 
@@ -74,7 +74,7 @@ function demo7() {
 
 function demo8() {
     const bilnummre = "SP12345TS97143EB76554";
-    const nummer = bilnummre.slice(0,7);
+    const nummer = bilnummre.slice(0, 7);
     const rest = bilnummre.slice(7);
     const siste = bilnummre.slice(-7);
 
@@ -84,65 +84,75 @@ function demo8() {
 }
 
 function demo9() {
-    const elbilRegExp =  /\bE[A-Z]\d{5}\b/g;
+    const elbilRegExp = /\bE[A-Z]\d{5}\b/g;
     const bilnummre = "SP12345 TS97143 EB76554 EL12121 AC453 EV65656";
     const result = bilnummre.match(elbilRegExp);
 
-    result.forEach(nummer => {console.log(`Elbil ${nummer}`)});
+    result.forEach(nummer => { console.log(`Elbil ${nummer}`) });
 }
 
 function demo10() {
-    const elbilRegExp =  /\b(E[A-Z])(\d{5})\b/g;
+    const elbilRegExp = /\b(E[A-Z])(\d{5})\b/g;
     const bilnummre = "SP12345 TS97143 EB76554 EL12121 AC453 EV65656";
-    /*
-     * matchAll kom med ECMAScript 2020
-     */
-    const iterator = bilnummre.matchAll(elbilRegExp);
-    let funn = iterator.next();
 
-    while (! funn.done) {
-        const [bilnummer,tegn,nummer] = funn.value;
-        console.log(`Bil ${bilnummer} med bokstaver ${tegn} har nummer ${nummer}`);
-        funn = iterator.next();
-    }
+    /*
+     * matchAll returnerer en iterator, konverterer til Array for å kunne bruke forEach
+     */
+    const result = Array.from(bilnummre.matchAll(elbilRegExp));
+    result.forEach(
+        ([bilnummer, tegn, nummer]) => console.log(`Bil ${bilnummer} med bokstaver ${tegn} har nummer ${nummer}`)
+    );
 }
 
 // https://www.regular-expressions.info/unicode.html
 function demo11() {
-    const emojiRegExp =  /\p{Emoji}+/gu;
+    const emojiRegExp = /\p{Emoji}+/gu;
     const tekst = "Hei dere 😂☝. Idag er det ☔ vær. Vi ses imorgen ☝";
     const result = tekst.match(emojiRegExp);
 
-    result.forEach(data => {console.log(`Fant: ${data}`)});
+    result.forEach(data => { console.log(`Fant: ${data}`) });
 }
 
 function demo12() {
     const person = "Ola Nordmann";
+
+    // \p{L} og \p{Letter} gir det samme
     const enavnReg = /\s\p{Letter}+$/u;
 
-    const skjult = person.replace(enavnReg," NN");
+    const skjult = person.replace(enavnReg, " NN");
     console.log(skjult);
 }
 
 function demo13() {
-    const person = "Ola Nordmann";
+    const tekst = "Ola Per AnnE Gro lene Åsø Marie Tor";
 
-    const skjult = person.replace("Nordmann","NN");
-    console.log(skjult);
+    // Ordgrense ved \b virker kun med bokstavene a-ZA-Z
+    const navnReg = /(?<=\P{L}|^)\p{Lu}\p{Ll}+(?=\P{L}|$)/gu;
+
+    const result = tekst.match(navnReg);
+
+    result.forEach(navn => { console.log(`Fant: ${navn}`) });
 }
 
 function demo14() {
     const person = "Ola Nordmann";
-    const delnavnRegExp =  /(\p{Letter}+)\s+(\p{Letter}+)/ug;
 
-    const navn = person.replaceAll(delnavnRegExp,"$2; $1");
-    console.log(navn);
+    const skjult = person.replace("Nordmann", "NN");
+    console.log(skjult);
 }
 
 function demo15() {
+    const person = "Ola Nordmann";
+    const delnavnRegExp = /(\p{Letter}+)\s+(\p{Letter}+)/ug;
+
+    const navn = person.replaceAll(delnavnRegExp, "$2; $1");
+    console.log(navn);
+}
+
+function demo16() {
     const person = "Olaa Nordmaann";
 
-    const navn = person.replaceAll("aa","å");
+    const navn = person.replaceAll("aa", "å");
     console.log(navn);
 }
 

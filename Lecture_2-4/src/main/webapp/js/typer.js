@@ -7,6 +7,7 @@ function demo0() {
     const d = NaN;
     const e = null;
     const f = Infinity;
+    let g;
 
     if (a) {
         console.log("a (undefined): Sann");
@@ -43,6 +44,13 @@ function demo0() {
     } else {
         console.log("f (Infinity): Usann");
     }
+
+    if (g) {
+        console.log("g (mangler verid): Sann");
+    } else {
+        console.log("g (mangler verdi): Usann");
+    }
+
 }
 
 function demo1() {
@@ -55,6 +63,15 @@ function demo1() {
 }
 
 function demo2() {
+    let value;
+    console.log(`typeof: ${typeof value}`);
+
+    if (value === undefined) {
+        console.log("Variabel er ikke definer");
+    }
+}
+
+function demo3() {
     const value = "";
     console.log(`typeof: ${typeof value}`);
 
@@ -63,7 +80,7 @@ function demo2() {
     }
 }
 
-function demo3() {
+function demo4() {
     const value = 0;
     console.log(`typeof: ${typeof value}`);
 
@@ -72,7 +89,7 @@ function demo3() {
     }
 }
 
-function demo4() {
+function demo5() {
     const value = NaN;
     console.log(`typeof: ${typeof value}`);
 
@@ -81,7 +98,16 @@ function demo4() {
     }
 }
 
-function demo5() {
+function demo6() {
+    const value = null;
+    console.log(`typeof: ${typeof value}`);
+
+    if (value == null) {
+        console.log("Variabel er 'null'");
+    }
+}
+
+function demo7() {
     const value = Infinity;
     console.log(`typeof: ${typeof value}`);
 
@@ -90,8 +116,8 @@ function demo5() {
     }
 }
 
-function demo6() {
-    const value = 10**1000;
+function demo8() {
+    const value = 10 ** 1000;
     console.log(`typeof: ${typeof value}`);
 
     if (value === Infinity) {
@@ -99,8 +125,8 @@ function demo6() {
     }
 }
 
-function demo7() {
-    const value = Math.pow(10,1000);
+function demo9() {
+    const value = Math.pow(10, 1000);
     console.log(`typeof: ${typeof value}`);
 
     if (isFinite(value)) {
@@ -110,7 +136,7 @@ function demo7() {
     }
 }
 
-function demo8() {
+function demo10() {
     const value = Number.MAX_VALUE;
     console.log(`typeof: ${typeof value}`);
     console.log(`Value har verdi ${value}`);
@@ -122,16 +148,17 @@ function demo8() {
     }
 }
 
-function demo9() {
+function demo11() {
     const tall = Math.PI;
     console.log(`typeof: ${typeof tall}`);
     console.log(`Variabel tall har verdi ${tall}`);
 
     const annetTall = tall.toFixed(2);
+    console.log(`typeof: ${typeof annetTall}`);
     console.log(`Variabel annetTall har verdi ${annetTall}`);
 }
 
-function demo10() {
+function demo12() {
     const tekst = "3.14";
     console.log(`typeof: ${typeof tekst}`);
     console.log(`Variabel tekst har verdi ${tekst}`);
@@ -141,8 +168,8 @@ function demo10() {
     console.log(`Variabel tall har verdi ${tall}`);
 }
 
-function demo11() {
-    const tekst = "12345";
+function demo13() {
+    const tekst = "12345.7";
     console.log(`typeof: ${typeof tekst}`);
     console.log(`Variabel tekst har verdi ${tekst}`);
 
@@ -151,7 +178,7 @@ function demo11() {
     console.log(`Variabel tall har verdi ${tall}`);
 }
 
-function demo12() {
+function demo14() {
     const tall = Math.PI;
     console.log(`typeof: ${typeof tall}`);
     console.log(`Variabel tall har verdi ${tall}`);
@@ -161,22 +188,22 @@ function demo12() {
     console.log(`Variabel tekst har verdi ${tekst}`);
 }
 
-function demo13() {
-    const stortTall = BigInt(Number.MAX_SAFE_INTEGER);
-    const veldigStortTall = stortTall**3n;
-
-    console.log(`typeof: ${typeof veldigStortTall}`);
-    console.log(`Variabel veldigStortTall har verdi ${veldigStortTall}`);
-}
-
-function demo14() {
-    const veldigStortTall = 93n**12376n;
-
-    console.log(`typeof: ${typeof veldigStortTall}`);
-    console.log(`Variabel veldigStortTall har verdi ${veldigStortTall}`);
-}
-
 function demo15() {
+    const stortTall = BigInt(Number.MAX_SAFE_INTEGER);
+    const veldigStortTall = stortTall ** 3n;
+
+    console.log(`typeof: ${typeof veldigStortTall}`);
+    console.log(`Variabel veldigStortTall har verdi ${veldigStortTall}`);
+}
+
+function demo16() {
+    const veldigStortTall = 93n ** 12376n;
+
+    console.log(`typeof: ${typeof veldigStortTall}`);
+    console.log(`Variabel veldigStortTall har verdi ${veldigStortTall}`);
+}
+
+function demo17() {
     const stortTall = BigInt(Number.MAX_SAFE_INTEGER);
     console.log("Denne vil feile!");
     const veldigStortTall = stortTall ** stortTall;
@@ -185,7 +212,7 @@ function demo15() {
     console.log(`Variabel har verdi ${veldigStortTall}`);
 }
 
-function demo16() {
+function demo18() {
     const a = Symbol();
 
     // Kan gi en forklarende tekst
