@@ -43,6 +43,11 @@ function demo4() {
         console.log(`${id}: ${value}`);
         element = iterator.next();
     }
+    
+    /*
+    for (let entry of Object.entries(farger)) {
+        const [id, value] = entry;
+        console.log(`${id}: ${value}`);*/
 }
 
 function visFarge(farge,index) {

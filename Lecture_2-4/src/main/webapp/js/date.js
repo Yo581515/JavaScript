@@ -19,6 +19,7 @@ function demo2() {
 
 function demo3() {
     const now = new Date();
+    console.log(now);
 
     if (now.getHours() > 12) {
         console.log("Det er nå ettermiddag");
@@ -35,6 +36,7 @@ function demo4() {
 
 function demo5() {
     const options = {weekday: 'long'};
+    console.log(options);
     const l10nNODato = new Intl.DateTimeFormat("nb-NO",options);
 
     const dato = new Date();

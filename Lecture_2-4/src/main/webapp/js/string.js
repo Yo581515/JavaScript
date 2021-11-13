@@ -87,6 +87,7 @@ function demo9() {
     const elbilRegExp = /\bE[A-Z]\d{5}\b/g;
     const bilnummre = "SP12345 TS97143 EB76554 EL12121 AC453 EV65656";
     const result = bilnummre.match(elbilRegExp);
+    console.log(result);
 
     result.forEach(nummer => { console.log(`Elbil ${nummer}`) });
 }
@@ -99,8 +100,10 @@ function demo10() {
      * matchAll returnerer en iterator, konverterer til Array for å kunne bruke forEach
      */
     const result = Array.from(bilnummre.matchAll(elbilRegExp));
+    console.log(result);
     result.forEach(
-        ([bilnummer, tegn, nummer]) => console.log(`Bil ${bilnummer} med bokstaver ${tegn} har nummer ${nummer}`)
+        ([bilnummer, tegn, nummer]) =>
+         console.log(`Bil ${bilnummer} med bokstaver ${tegn} har nummer ${nummer}`)
     );
 }
 
